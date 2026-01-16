@@ -12,7 +12,6 @@ void copy_file(const char* src_f, const char* dest_f) {
 	// Start the clock
 	start = clock();
 
-
 	// Open Source File in rrb mode
 	src = fopen(src_f, "rb");
 	if (!src) {
