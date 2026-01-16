@@ -4,7 +4,6 @@
 
 void copy_file(const char* src_f, const char* dest_f) {
 	FILE *src, *dst;
-	unsigned int file_t;
 	int character;
 	clock_t start, end;
 	double cpu_time_used;
@@ -28,7 +27,7 @@ void copy_file(const char* src_f, const char* dest_f) {
 		exit(EXIT_FAILURE);
 	}
 
-	// Read from source, copying to destination
+	// Read from source, copying to destination one character at a time until the end of the file.
 	while ((character = fgetc(src)) != EOF) {
 		fputc(character, dst);
 	}
@@ -50,6 +49,8 @@ void copy_file(const char* src_f, const char* dest_f) {
 }
 
 int main(int argc, char *argv[]) {
+	// Check for the number of arguments passed to the function. Checking of validity of said arguments
+	// will occur in the copy_file function itself.
 	if (argc != 3) {
 		fprintf(stderr, "Correct Usage: %s <source_file> <destination_file>\n", argv[0]);
 		exit(EXIT_FAILURE);
